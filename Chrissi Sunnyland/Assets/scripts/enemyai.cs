@@ -9,7 +9,8 @@ public class enemyai : MonoBehaviour {
     public Transform target;
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
-
+    //hier
+    public Transform spieler;
     //stehengeblieben bei 21:07 wowowoowow
 
     Path path;
@@ -24,11 +25,24 @@ public class enemyai : MonoBehaviour {
         seeker =GetComponent<Seeker>();
         rb= GetComponent<Rigidbody2D>();
         InvokeRepeating("UpdatePath", 0f, .5f);
+        spieler = GameObject.FindWithTag("final-Chrissi-stand").transform;
         
 
     }
+    //hier
+    private void Update()
+    {
+        Vector3 direction = spieler.position - transform.position;
+        if (direction.x < 0) 
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1,1,1);
+        }
+    }
 
-    
     void UpdatePath() {
 
         if(seeker.IsDone())

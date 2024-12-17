@@ -453,7 +453,7 @@ namespace Pathfinding {
 
 		protected static readonly Color GizmoColor = new Color(46.0f/255, 104.0f/255, 201.0f/255);
 
-		protected override void OnDrawGizmos () {
+        protected override void OnDrawGizmos () {
 			base.OnDrawGizmos();
 			if (alwaysDrawGizmos) OnDrawGizmosInternal();
 		}
@@ -479,6 +479,7 @@ namespace Pathfinding {
 				Draw.Gizmos.CircleXZ(Vector3.zero, slowdownDistance, Color.Lerp(GizmoColor, Color.red, 0.5f) * new Color(1, 1, 1, alpha));
 				Draw.Gizmos.CircleXZ(Vector3.zero, endReachedDistance, Color.Lerp(GizmoColor, Color.red, 0.8f) * new Color(1, 1, 1, alpha));
 			}
+
 		}
 #endif
 
